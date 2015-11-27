@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<net.swaas.drinfo.views.DefaultLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/message_layout" />
+    <include layout="@layout/error_layout" />
+    <net.swaas.drinfo.views.DefaultRecyclerView
+        android:layout_below="@id/common_error"
+        android:id="@id/doctor_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
+        android:orientation="vertical">
+
+    </net.swaas.drinfo.views.DefaultRecyclerView>
+</net.swaas.drinfo.views.DefaultLinearLayout>

@@ -1,0 +1,84 @@
+<net.swaas.drinfo.views.DefaultRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <net.swaas.drinfo.views.DefaultTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="@dimen/abc_text_size_display_2_material"
+        android:layout_marginBottom="32dp"
+        android:id="@id/title_view"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <net.swaas.drinfo.views.DefaultLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box_form"
+        android:orientation="vertical"
+        android:layout_below="@id/title_view"
+        android:layout_marginBottom="16dp"
+        android:id="@id/form_Layout">
+
+        <net.swaas.drinfo.views.ClearableEditText
+            android:id="@id/userid"
+            style="@style/EditViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/user_id"
+            android:inputType="text"
+            android:maxLength="100" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/thin_line" />
+
+        <net.swaas.drinfo.views.ClearableEditText
+            android:id="@id/password"
+            style="@style/EditViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLength="100" />
+    </net.swaas.drinfo.views.DefaultLinearLayout>
+
+    <net.swaas.drinfo.views.DefaultTextView
+        android:id="@id/common_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/form_Layout"
+        android:layout_centerHorizontal="true" />
+
+    <net.swaas.drinfo.views.DefaultRelativeLayout
+        android:layout_below="@id/common_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <net.swaas.drinfo.views.DefaultButton
+            android:id="@id/btn_submit"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_height="46dp"
+            android:enabled="false"
+            android:text="@string/login"
+            android:textColor="@android:color/white"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </net.swaas.drinfo.views.DefaultRelativeLayout>
+</net.swaas.drinfo.views.DefaultRelativeLayout>

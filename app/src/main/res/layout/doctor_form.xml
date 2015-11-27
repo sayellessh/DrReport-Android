@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <net.swaas.drinfo.views.DefaultLinearLayout
+        android:id="@id/form_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <net.swaas.drinfo.views.FormTitleHeaderView
+            style="@style/GroupingTitle"
+            app:tv_text="@string/doctor_personal_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/first_name"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/first_name"
+                android:inputType="textCapWords"
+                android:maxLength="100"
+                android:maxLines="1" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/last_name"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/last_name"
+                android:inputType="textCapWords"
+                android:maxLength="100"
+                android:maxLines="1"
+                android:paddingTop="16dp" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.DefaultRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp">
+
+            <net.swaas.drinfo.views.DefaultTextInputLayout
+                android:id="@id/speciality_layout"
+                style="@style/TextInputFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <net.swaas.drinfo.views.DefaultEditText
+                    android:id="@id/speciality"
+                    style="@style/EditViewStyle.Form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/speciality_name"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:maxLines="1" />
+            </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+            <View
+                android:id="@id/speciality_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@id/speciality_layout"
+                android:layout_alignParentTop="true"
+                android:background="@android:color/transparent" />
+        </net.swaas.drinfo.views.DefaultRelativeLayout>
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/phone_number"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone"
+                android:inputType="phone"
+                android:maxLength="12"
+                android:maxLines="1" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/email"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:maxLength="100"
+                android:maxLines="1" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.FormTitleHeaderView
+            style="@style/GroupingTitle"
+            app:tv_text="@string/hospital_clinic_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultAutocompleteTextView
+                android:id="@id/hospital_name"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hospital_name"
+                android:inputType="textAutoComplete|textCapWords"
+                android:maxLength="100"
+                android:maxLines="1" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.DefaultTextView
+            android:paddingLeft="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/hospital_photo" />
+
+        <net.swaas.drinfo.views.DefaultRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
+
+            <ImageButton
+                android:id="@id/thumbnail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                style="@style/ActionBarButtonStyle"
+                android:src="@mipmap/ic_camera" />
+
+            <ImageView
+                android:id="@id/thumbnail_preview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/thumbnail"
+                android:layout_toRightOf="@id/thumbnail"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_camera"
+                android:visibility="gone" />
+        </net.swaas.drinfo.views.DefaultRelativeLayout>
+
+        <!--<net.swaas.drinfo.views.DefaultRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+
+        </net.swaas.drinfo.views.DefaultRelativeLayout>-->
+
+        <!--<net.swaas.drinfo.views.DefaultTextView
+            android:paddingLeft="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/checkin_hospital_address" />
+
+        <ImageButton
+            android:id="@id/geo_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/ActionBarButtonStyle"
+            android:src="@mipmap/ic_location_blue" />
+
+        <net.swaas.drinfo.views.DefaultLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@id/thumbnail"
+            android:layout_toStartOf="@id/thumbnail"
+            android:orientation="vertical">
+
+            <net.swaas.drinfo.views.DefaultTextInputLayout
+                style="@style/TextInputFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <net.swaas.drinfo.views.DefaultEditText
+                    android:id="@id/address"
+                    style="@style/EditViewStyle.Form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hospital_address"
+                    android:maxLength="500"
+                    android:maxLines="6"
+                    android:minLines="3" />
+            </net.swaas.drinfo.views.DefaultTextInputLayout>
+        </net.swaas.drinfo.views.DefaultLinearLayout>-->
+
+        <include layout="@layout/map_tracer" />
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/landmark"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/landmark"
+                android:inputType="textCapWords"
+                android:maxLength="100"
+                android:maxLines="1" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.DefaultRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <net.swaas.drinfo.views.DefaultTextView
+                android:paddingLeft="16dp"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/working_hours" />
+            <ImageButton
+                android:id="@id/working_hours_add"
+                android:src="@drawable/ic_add_white_18dp"
+                android:background="@drawable/rounded_btn"
+                android:layout_marginRight="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </net.swaas.drinfo.views.DefaultRelativeLayout>
+
+        <include
+            android:id="@id/working_hours_input_1"
+            layout="@layout/working_hours_form" />
+
+        <include
+            android:id="@id/working_hours_input_2"
+            layout="@layout/working_hours_form" />
+
+        <include
+            android:id="@id/working_hours_input_3"
+            layout="@layout/working_hours_form" />
+
+        <net.swaas.drinfo.views.FormTitleHeaderView
+            style="@style/GroupingTitle"
+            app:tv_text="@string/doctor_assistant_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/assistant_name"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/assistant_name"
+                android:inputType="textCapWords"
+                android:maxLength="100"
+                android:maxLines="1" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/assistant_phone"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/assistant_phone"
+                android:inputType="phone"
+                android:maxLength="12"
+                android:maxLines="1" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.FormTitleHeaderView
+            style="@style/GroupingTitle"
+            app:tv_text="@string/other_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/remarks"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/remarks"
+                android:maxLength="200"
+                android:maxLines="6"
+                android:minLines="3" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/trainer_code"
+                style="@style/EditViewStyle.Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/trainer_code"
+                android:maxLength="10"
+                android:inputType="number"
+                android:maxLines="1"
+                android:minLines="1" />
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+    </net.swaas.drinfo.views.DefaultLinearLayout>
+</ScrollView>

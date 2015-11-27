@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FormTitleHeaderView">
+        <attr name="tv_background" format="reference" />
+        <attr name="tv_text" format="string" />
+        <attr name="tv_textTypeface">
+            <!--BOLD-->
+            <flag name="bold" value="1" />
+            <!--BOLD ITALIC-->
+            <flag name="bold_italic" value="3" />
+            <!--ITALIC-->
+            <flag name="italic" value="2" />
+            <!--NORMAL-->
+            <flag name="normal" value="0" />
+        </attr>
+        <attr name="tv_gravity">
+            <!-- Push object to the top of its container, not changing its size. -->
+            <flag name="top" value="0x30" />
+            <!-- Push object to the bottom of its container, not changing its size. -->
+            <flag name="bottom" value="0x50" />
+            <!-- Push object to the left of its container, not changing its size. -->
+            <flag name="left" value="0x03" />
+            <!-- Push object to the right of its container, not changing its size. -->
+            <flag name="right" value="0x05" />
+            <!-- Place object in the vertical center of its container, not changing its size. -->
+            <flag name="center_vertical" value="0x10" />
+            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill_vertical" value="0x70" />
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
+            <flag name="center_horizontal" value="0x01" />
+            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
+            <flag name="fill_horizontal" value="0x07" />
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
+            <flag name="center" value="0x11" />
+            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill" value="0x77" />
+        </attr>
+        <attr name="tv_paddingLeft" format="dimension" />
+        <attr name="tv_paddingRight" format="dimension" />
+        <attr name="tv_paddingTop" format="dimension" />
+        <attr name="tv_paddingBottom" format="dimension" />
+        <attr name="tv_textColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="FormElementView">
+        <attr name="tv_title" format="string" />
+        <attr name="tv_content" format="string" />
+        <attr name="tv_hideIfContentEmpty" format="boolean" />
+    </declare-styleable>
+</resources>

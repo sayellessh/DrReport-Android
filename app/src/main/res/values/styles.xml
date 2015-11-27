@@ -1,0 +1,153 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+        <item name="android:editTextStyle">@style/EditViewStyle</item>
+        <item name="android:actionBarStyle">@style/Toolbar</item>
+        <item name="android:actionBarTabTextStyle">@style/MyActionBarTabText</item>
+        <item name="android:actionModeBackground">@color/colorPrimary</item>
+        <item name="android:actionMenuTextColor">@android:color/white</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Theme support style here -->
+        <item name="buttonStyle">@style/ButtonStyle</item>
+        <item name="editTextStyle">@style/EditViewStyle</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="actionBarStyle">@style/Toolbar</item>
+        <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
+        <item name="actionModeBackground">@color/colorPrimary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="Toolbar" parent="Theme.AppCompat">
+        <!--<item name="android:background">@drawable/toolbar_style</item>-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:titleTextStyle">@style/MyTitleTextStyle</item>
+    </style>
+
+    <style name="MyTitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ToolbarMenu" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/primary_material_light</item>
+        <!--<item name="android:textColor">@android:color/white</item>-->
+    </style>
+
+    <!-- ActionBar tabs text -->
+    <style name="MyActionBarTabText"
+        parent="@style/Widget.AppCompat.ActionBar.TabText">
+        <item name="android:textColor">@android:color/white</item>
+        <!-- The textColor property is backward compatible with the Support Library -->
+    </style>
+
+    <style name="TextViewStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/material_blue_grey_950</item>
+    </style>
+
+    <style name="EditViewStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_cursor</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+    </style>
+
+    <style name="TextInputFormStyle" parent="Widget.Design.TextInputLayout">
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
+    <style name="EditViewStyle.Form">
+        <item name="android:background">@drawable/edittext_bg</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:background">@drawable/button_bg</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ButtonStyle.LocationPicker">
+        <item name="android:background">@drawable/black_opacity_bg</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:layout_marginRight">24dp</item>
+        <item name="android:layout_marginBottom">32dp</item>
+    </style>
+
+    <style name="ButtonStyle.LocationUpdater">
+        <item name="android:background">@drawable/ic_pic_location</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:layout_marginRight">24dp</item>
+        <item name="android:layout_marginBottom">32dp</item>
+    </style>
+
+    <style name="ActionBarButtonStyle" parent="@style/Widget.AppCompat.ActionButton">
+        <item name="android:clickable">true</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <!--<item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>-->
+    </style>
+
+    <style name="TextViewStyle.Grouping">
+        <item name="android:background">@color/color_sticky</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="GroupingTitle">
+        <item name="tv_background">@android:color/white</item>
+        <!-- gravity not working, need to rework -->
+        <!--<item name="tv_gravity">center</item>-->
+        <item name="tv_paddingLeft">8dp</item>
+        <item name="tv_paddingRight">8dp</item>
+        <item name="tv_paddingTop">12dp</item>
+        <item name="tv_paddingBottom">16dp</item>
+        <item name="tv_textColor">@color/colorPrimaryDark</item>
+        <item name="tv_textTypeface">bold</item>
+    </style>
+    <style name="TextViewStyle.ViewTitle">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    <style name="TextViewStyle.ViewContent">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="CollapsibleToolbarLayoutExpandedTextStyle" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">20sp</item>
+    </style>
+</resources>

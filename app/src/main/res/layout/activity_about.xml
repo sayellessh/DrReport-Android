@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<net.swaas.drinfo.views.DefaultLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@id/toolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize" />
+
+    <net.swaas.drinfo.views.DefaultRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <net.swaas.drinfo.views.DefaultLinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <net.swaas.drinfo.views.DefaultRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <net.swaas.drinfo.views.DefaultTextView
+                    android:text="@string/app_title_for_android"
+                    android:textSize="32sp"
+                    android:paddingLeft="@dimen/about_right_padding"
+                    android:paddingRight="@dimen/about_left_padding"
+                    android:textColor="@android:color/white"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </net.swaas.drinfo.views.DefaultRelativeLayout>
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="@string/version"
+                android:textSize="16sp"
+                android:paddingLeft="@dimen/about_left_padding"
+                android:paddingRight="@dimen/about_right_padding"
+                android:paddingTop="32dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/colorPrimaryDisabled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="12.1"
+                android:id="@id/about_version"
+                android:textSize="16sp"
+                android:paddingLeft="@dimen/about_left_padding"
+                android:paddingRight="@dimen/about_right_padding"
+                android:paddingBottom="24dp"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="@string/developed_by"
+                android:textSize="16sp"
+                android:paddingLeft="@dimen/about_left_padding"
+                android:paddingRight="@dimen/about_right_padding"
+                android:paddingBottom="2dp"
+                android:textColor="@color/colorPrimaryDisabled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="@string/company_name"
+                android:textSize="20sp"
+                android:paddingLeft="@dimen/about_left_padding"
+                android:paddingRight="8dp"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="@string/website"
+                android:textSize="16sp"
+                android:id="@id/website"
+                android:paddingLeft="@dimen/about_left_padding"
+                android:paddingRight="@dimen/about_right_padding"
+                android:paddingBottom="32dp"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="@string/current_user_log"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:id="@id/current_user_log"
+                android:paddingLeft="@dimen/about_left_padding"
+                android:paddingRight="@dimen/about_right_padding"
+                android:paddingBottom="32dp"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </net.swaas.drinfo.views.DefaultLinearLayout>
+        <net.swaas.drinfo.views.DefaultLinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/about_left_padding"
+            android:paddingRight="@dimen/about_right_padding"
+            android:paddingBottom="24dp">
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="@string/contact_us"
+                android:textSize="16sp"
+                android:id="@id/contact_us"
+                android:textColor="@color/colorPrimaryDisabled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="@string/phone_contact"
+                android:id="@id/contact_phone"
+                android:textSize="16sp"
+                android:paddingBottom="4dp"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <net.swaas.drinfo.views.DefaultTextView
+                android:text="@string/mail_contact"
+                android:id="@id/contact_email"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </net.swaas.drinfo.views.DefaultLinearLayout>
+    </net.swaas.drinfo.views.DefaultRelativeLayout>
+
+</net.swaas.drinfo.views.DefaultLinearLayout>

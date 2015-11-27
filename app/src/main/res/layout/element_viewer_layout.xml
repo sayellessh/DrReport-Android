@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<net.swaas.drinfo.views.DefaultLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <net.swaas.drinfo.views.DefaultTextView
+        style="@style/TextViewStyle.ViewTitle"
+        android:id="@android:id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/full_name" />
+
+    <net.swaas.drinfo.views.DefaultTextView
+        style="@style/TextViewStyle.ViewContent"
+        android:id="@android:id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vinoth Kannah MP" />
+</net.swaas.drinfo.views.DefaultLinearLayout>

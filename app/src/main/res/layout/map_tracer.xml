@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<net.swaas.drinfo.views.DefaultLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--<net.swaas.drinfo.views.DefaultTextView
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:text="@string/hospital_address"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />-->
+    <net.swaas.drinfo.views.FormTitleHeaderView
+        style="@style/GroupingTitle"
+        app:tv_text="@string/hospital_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <net.swaas.drinfo.views.DefaultRelativeLayout
+        android:id="@id/location_pick_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_map" />
+
+        <Button
+            android:id="@id/location_pick_btn"
+            style="@style/ButtonStyle.LocationPicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/checkin_hospital_address" />
+    </net.swaas.drinfo.views.DefaultRelativeLayout>
+
+    <net.swaas.drinfo.views.DefaultRelativeLayout
+        android:id="@id/location_update_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <net.swaas.drinfo.views.DefaultTextInputLayout
+            style="@style/TextInputFormStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toLeftOf="@id/location_update_btn">
+
+            <net.swaas.drinfo.views.DefaultEditText
+                android:id="@id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:maxLength="500"
+                android:maxLines="4"
+                android:minLines="4"/>
+        </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+        <Button
+            android:id="@id/location_update_btn"
+            style="@style/ButtonStyle.LocationUpdater"
+            android:gravity="bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+        <net.swaas.drinfo.views.DefaultTextView
+            android:text="@string/pick_current_location"
+            android:layout_alignRight="@id/location_update_btn"
+            android:layout_alignLeft="@id/location_update_btn"
+            android:layout_alignBottom="@id/location_update_btn"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </net.swaas.drinfo.views.DefaultRelativeLayout>
+    <net.swaas.drinfo.views.DefaultTextView
+        android:id="@id/error_element"
+        android:text=""
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</net.swaas.drinfo.views.DefaultLinearLayout>

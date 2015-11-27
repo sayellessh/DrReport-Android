@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<net.swaas.drinfo.views.DefaultRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <net.swaas.drinfo.views.DefaultLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <net.swaas.drinfo.views.DefaultRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1">
+
+            <net.swaas.drinfo.views.DefaultTextInputLayout
+                android:id="@id/work_from_layout"
+                style="@style/TextInputFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <net.swaas.drinfo.views.DefaultEditText
+                    android:id="@id/work_from"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    style="@style/EditViewStyle.Form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/from"
+                    android:maxLines="1" />
+            </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+            <View
+                android:id="@id/work_from_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@id/work_from_layout"
+                android:layout_alignParentTop="true"
+                android:background="@android:color/transparent" />
+        </net.swaas.drinfo.views.DefaultRelativeLayout>
+
+        <net.swaas.drinfo.views.DefaultRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1">
+
+            <net.swaas.drinfo.views.DefaultTextInputLayout
+                android:id="@id/work_to_layout"
+                style="@style/TextInputFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <net.swaas.drinfo.views.DefaultEditText
+                    android:id="@id/work_to"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    style="@style/EditViewStyle.Form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/to"
+                    android:maxLines="1" />
+            </net.swaas.drinfo.views.DefaultTextInputLayout>
+
+            <View
+                android:id="@id/work_to_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@id/work_to_layout"
+                android:layout_alignParentTop="true"
+                android:background="@android:color/transparent" />
+        </net.swaas.drinfo.views.DefaultRelativeLayout>
+    </net.swaas.drinfo.views.DefaultLinearLayout>
+    <ImageButton
+        android:id="@id/working_hours_remove"
+        android:background="@drawable/ic_delete_black_24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</net.swaas.drinfo.views.DefaultRelativeLayout>

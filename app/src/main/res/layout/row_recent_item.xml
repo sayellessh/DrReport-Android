@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<net.swaas.drinfo.views.DefaultFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@id/list_item"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:background="@drawable/list_selector_white">
+
+    <net.swaas.drinfo.views.CircularContactView
+        android:id="@id/thumbnail"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true" />
+
+    <net.swaas.drinfo.views.DefaultLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@id/details"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/toolbar_margin_start"
+        android:layout_marginRight="16dp"
+        android:layout_centerVertical="true">
+        <net.swaas.drinfo.views.DefaultTextView
+            android:id="@id/doctor_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Name"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/filter_text_size" />
+        <net.swaas.drinfo.views.DefaultTextView
+            android:id="@id/doctor_speciality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Number"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/filter_text_size" />
+    </net.swaas.drinfo.views.DefaultLinearLayout>
+
+</net.swaas.drinfo.views.DefaultFrameLayout>
