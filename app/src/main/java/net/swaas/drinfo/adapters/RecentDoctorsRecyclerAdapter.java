@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import net.swaas.drinfo.R;
 import net.swaas.drinfo.activity.AddDoctorActivity;
+import net.swaas.drinfo.activity.ViewDoctorActivity;
 import net.swaas.drinfo.beans.Doctor;
 import net.swaas.drinfo.views.CircularContactView;
 import net.swaas.drinfo.views.DefaultRecyclerView;
@@ -66,7 +67,7 @@ public class RecentDoctorsRecyclerAdapter extends BaseAbstractRecyclerAdapter<Re
         vh.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, AddDoctorActivity.class);
+                Intent intent = new Intent(mContext, ViewDoctorActivity.class);
                 intent.putExtra(AddDoctorActivity.EXISTING_DOCTOR, mDoctors.get(position));
                 mContext.startActivity(intent);
             }

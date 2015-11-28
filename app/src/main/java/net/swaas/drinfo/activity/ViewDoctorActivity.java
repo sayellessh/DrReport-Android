@@ -1,12 +1,18 @@
 package net.swaas.drinfo.activity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -14,6 +20,8 @@ import com.koushikdutta.ion.Ion;
 
 import net.swaas.drinfo.R;
 import net.swaas.drinfo.beans.Doctor;
+import net.swaas.drinfo.core.FileDownloader;
+import net.swaas.drinfo.dao.DoctorDAO;
 import net.swaas.drinfo.logger.LogTracer;
 import net.swaas.drinfo.utils.SettingsUtils;
 import net.swaas.drinfo.views.DefaultLinearLayout;
@@ -33,6 +41,45 @@ public class ViewDoctorActivity extends BaseActivity {
     private Toolbar mToolbar;
     private Doctor mExistingDoctor;
     private ViewHolder mHolder;
+    AlertDialog mAlertDialog = null;
+    private FileDownloader mFileDownloader;
+    private FileDownloader.Task mDownloadTask = new FileDownloader.Task() {
+        @Override
+        public void onProgress(double downloaded, int fileLength, double progress) {
+            String msg = String.format(getString(R.string.msg_downloading), Double.toString(Math.round(progress)));
+            showLoader(null, msg);
+        }
+
+        @Override
+        public void onComplete(String filePath) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.parse("file://" + filePath), "image/*");
+            startActivity(intent);
+            hideLoader();
+        }
+
+        @Override
+        public void onError(Exception e) {
+            LOG_TRACER.e(e);
+            hideLoader();
+            AlertDialog.Builder builder = new AlertDialog.Builder(ViewDoctorActivity.this);
+            builder.setTitle(getString(R.string.error));
+            builder.setMessage(e.getMessage());
+            builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    if (mAlertDialog != null) mAlertDialog.dismiss();
+                }
+            });
+            if (mAlertDialog != null) {
+                mAlertDialog.dismiss();
+            }
+            mAlertDialog = builder.create();
+            mAlertDialog.setCancelable(true);
+            mAlertDialog.show();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +95,12 @@ public class ViewDoctorActivity extends BaseActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mExistingDoctor = new DoctorDAO(this).get(mExistingDoctor.getDoctor_Id());
         mHolder = new ViewHolder();
         mHolder.updateValues();
     }
@@ -108,6 +161,14 @@ public class ViewDoctorActivity extends BaseActivity {
                 collapsingToolbarLayout.setTitle(mExistingDoctor.getDisplayName());
                 if (!TextUtils.isEmpty(mExistingDoctor.getHospital_Photo_Url())) {
                     Ion.with(ViewDoctorActivity.this).load(mExistingDoctor.getHospital_Photo_Url()).intoImageView(hospitalImage);
+                    hospitalImage.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (mFileDownloader != null) mFileDownloader.cancel(true);
+                            mFileDownloader = new FileDownloader(ViewDoctorActivity.this, mDownloadTask);
+                            mFileDownloader.execute(mExistingDoctor.getHospital_Photo_Url());
+                        }
+                    });
                 }
                 speciality.setContent(mExistingDoctor.getSpeciality_Name());
                 phoneNumber.setContent(mExistingDoctor.getPhone_Number());
@@ -139,5 +200,30 @@ public class ViewDoctorActivity extends BaseActivity {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_viewdoctor, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_edit: {
+                Intent intent = new Intent(ViewDoctorActivity.this, AddDoctorActivity.class);
+                intent.putExtra(AddDoctorActivity.EXISTING_DOCTOR, mExistingDoctor);
+                startActivity(intent);
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mFileDownloader != null) mFileDownloader.cancel(true);
     }
 }

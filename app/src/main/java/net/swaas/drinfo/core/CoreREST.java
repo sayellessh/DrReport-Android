@@ -29,8 +29,8 @@ public class CoreREST {
     private static final LogTracer LOG_TRACER = LogTracer.instance(CoreREST.class);
     private static final String METHOD_POST = "POST";
     private static final String METHOD_GET = "GET";
-    public static final String SERVER = "http://192.168.0.121:3333/";
-    //public static final String SERVER = "http://doctorbonddcqaws.hidoctor.me/";
+    //public static final String SERVER = "http://192.168.0.121:3333/";
+    public static final String SERVER = "http://doctorbonddcqaws.hidoctor.me/";
     //public static final String SERVER = "http://doctorbonddcws.hidoctor.me/";
     public static final String MESSAGE_NETWORK_ERROR = "No Network! Turn ON data or WiFi or check your network conncetivity.";
 

@@ -94,4 +94,6 @@
     <item name="work_to_3" type="id" />
     <item name="assistant_layout" type="id" />
     <item name="other_information" type="id" />
+    <item name="action_edit" type="id" />
+    <item name="backdrop_shade" type="id" />
 </resources>
