@@ -224,7 +224,7 @@ public class AddDoctorActivity extends BaseActivity implements LocationListener 
             locationUpdate = (Button) findViewById(R.id.location_update_btn);
             errorElement = (DefaultTextView) findViewById(R.id.error_element);
             address = (DefaultEditText) findViewById(R.id.address);
-            address.setEnabled(false);
+            address.setEnabled(true);
             locationPickLayout.setVisibility(View.VISIBLE);
             locationUpdateLayout.setVisibility(View.GONE);
             errorElement.setVisibility(View.GONE);
@@ -296,8 +296,9 @@ public class AddDoctorActivity extends BaseActivity implements LocationListener 
                 locationUpdateLayout.setVisibility(View.VISIBLE);
                 address.setEnabled(true);
             } else {
-                locationPickLayout.setVisibility(View.VISIBLE);
-                locationUpdateLayout.setVisibility(View.GONE);
+                locationPickLayout.setVisibility(View.GONE);
+                //locationPickLayout.setVisibility(View.VISIBLE);
+                locationUpdateLayout.setVisibility(View.VISIBLE);
             }
             landmark.setText(doctor.getLandmark());
             assistantName.setText(doctor.getAssistant_Name());
@@ -942,15 +943,19 @@ public class AddDoctorActivity extends BaseActivity implements LocationListener 
                         //mHolder.landmark.setText(jsonObject.getString(LANDMARK));
                         if (!TextUtils.isEmpty(jsonObject.getString(ADDRESS)))
                             mHolder.address.setEnabled(true);
-                        else mHolder.address.setEnabled(false);
+                        else mHolder.address.setEnabled(true);
                         mHolder.locationPickLayout.setVisibility(View.GONE);
                         mHolder.locationUpdateLayout.setVisibility(View.VISIBLE);
                         Toast.makeText(AddDoctorActivity.this, getString(R.string.msg_got_location_details), Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         Toast.makeText(AddDoctorActivity.this, getString(R.string.error_getting_location_details), Toast.LENGTH_SHORT).show();
+                        mHolder.locationPickLayout.setVisibility(View.GONE);
+                        mHolder.locationUpdateLayout.setVisibility(View.VISIBLE);
                     }
                 } else {
                     Toast.makeText(AddDoctorActivity.this, getString(R.string.error_getting_location_details), Toast.LENGTH_SHORT).show();
+                    mHolder.locationPickLayout.setVisibility(View.GONE);
+                    mHolder.locationUpdateLayout.setVisibility(View.VISIBLE);
                 }
                 if (mLocationManager != null)
                     mLocationManager.removeUpdates(AddDoctorActivity.this);
@@ -963,22 +968,27 @@ public class AddDoctorActivity extends BaseActivity implements LocationListener 
                         Geocoder geocoder;
                         List<Address> addresses;
                         geocoder = new Geocoder(AddDoctorActivity.this, Locale.getDefault());
-
                         addresses = geocoder.getFromLocation(mLocation.getLatitude(), mLocation.getLongitude(), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
-
-                        String address = TextUtils.isEmpty(addresses.get(0).getAddressLine(0)) ? "" : addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-                        String city = TextUtils.isEmpty(addresses.get(0).getLocality()) ? "" : addresses.get(0).getLocality();
-                        String state = TextUtils.isEmpty(addresses.get(0).getAdminArea()) ? "" : addresses.get(0).getAdminArea();
-                        String country = TextUtils.isEmpty(addresses.get(0).getCountryName()) ? "" : addresses.get(0).getCountryName();
-                        String postalCode = TextUtils.isEmpty(addresses.get(0).getPostalCode()) ? ""
-                                : (" - " + addresses.get(0).getPostalCode());
-                        String knownName = addresses.get(0).getFeatureName();
-                        JSONObject jsonObject = new JSONObject();
-                        jsonObject.put(ADDRESS, address + "\n" + city + "\n" + state + "\n" + country + postalCode);
-                        jsonObject.put(LANDMARK, knownName);
-                        if (mLocationManager != null)
-                            mLocationManager.removeUpdates(AddDoctorActivity.this);
-                        return jsonObject;
+                        //addresses = geocoder.getFromLocation(12.022986, 86.624403, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+                        if(addresses.size() > 0) {
+                            String address = TextUtils.isEmpty(addresses.get(0).getAddressLine(0)) ? "" : addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+                            String city = TextUtils.isEmpty(addresses.get(0).getLocality()) ? "" : addresses.get(0).getLocality();
+                            String state = TextUtils.isEmpty(addresses.get(0).getAdminArea()) ? "" : addresses.get(0).getAdminArea();
+                            String country = TextUtils.isEmpty(addresses.get(0).getCountryName()) ? "" : addresses.get(0).getCountryName();
+                            String postalCode = TextUtils.isEmpty(addresses.get(0).getPostalCode()) ? ""
+                                    : (" - " + addresses.get(0).getPostalCode());
+                            String knownName = addresses.get(0).getFeatureName();
+                            JSONObject jsonObject = new JSONObject();
+                            jsonObject.put(ADDRESS, address + "\n" + city + "\n" + state + "\n" + country + postalCode);
+                            jsonObject.put(LANDMARK, knownName);
+                            if (mLocationManager != null)
+                                mLocationManager.removeUpdates(AddDoctorActivity.this);
+                            return jsonObject;
+                        } else {
+                            JSONObject jsonObject = new JSONObject();
+                            jsonObject.put(ADDRESS, "");
+                            jsonObject.put(LANDMARK, "");
+                        }
                     } else throw new IOException("Location not initialized.");
                 } catch (IOException e) {
                     LOG_TRACER.e(e);
@@ -994,7 +1004,11 @@ public class AddDoctorActivity extends BaseActivity implements LocationListener 
     @Override
     public void onLocationChanged(Location location) {
         this.mLocation = location;
-        getAddressDetails();
+        //getAddressDetails();
+        /*
+        *To enable address after getting the geolocation
+        */
+        enableAddress();
     }
 
     @Override
@@ -1020,9 +1034,11 @@ public class AddDoctorActivity extends BaseActivity implements LocationListener 
     }
 
     public void initGeolocation() {
-        Toast.makeText(this, getString(R.string.msg_getting_location_details), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, getString(R.string.msg_getting_location_details), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, getString(R.string.getting_lat_long), Toast.LENGTH_SHORT).show();
         mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        mLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        //mLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        //mLocation = null;
         //exceptions will be thrown if provider is not permitted.
         boolean gpsEnabled = false;
         boolean networkEnabled = false;
@@ -1036,19 +1052,27 @@ public class AddDoctorActivity extends BaseActivity implements LocationListener 
         }
         if (gpsEnabled) {
             mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 360000, 1000, this);
-            mLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            //mLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         }
         if (networkEnabled) {
             mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 360000, 1000, this);
-            if (mLocation == null)
-                mLocation = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if (mLocation == null){
+                //mLocation = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            }
+
         }
         if (!gpsEnabled && !networkEnabled) {
             Toast.makeText(this, getString(R.string.error_gps_off), Toast.LENGTH_SHORT).show();
         }
-        if (mLocation != null) {
-            getAddressDetails();
+        /*
+        *To enable address after getting the geolocation
+        */
+        if (gpsEnabled && networkEnabled){
+            enableAddress();
         }
+        /*if(mLocation != null){
+            getAddressDetails();
+        }*/
     }
 
     public void validateAndSubmitData() {
@@ -1160,5 +1184,14 @@ public class AddDoctorActivity extends BaseActivity implements LocationListener 
         mErrorMsg.setText(errorMsg);
         mErrorMsg.setVisibility(View.VISIBLE);
         mScrollView.smoothScrollTo(0, 0);
+    }
+
+    /*
+    To enable address changed on dec/23/15
+    */
+    public void enableAddress(){
+        mHolder.address.setEnabled(true);
+        mHolder.locationPickLayout.setVisibility(View.GONE);
+        mHolder.locationUpdateLayout.setVisibility(View.VISIBLE);
     }
 }

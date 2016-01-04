@@ -93,13 +93,13 @@
     <string name="error_address_required">Address required. (Press the above button)</string>
     <string name="error_address_invalid">Address is invalid.</string>
     <string name="hospital_address">Hospital Address</string>
-    <string name="checkin_hospital_address">Tap here to pick the address</string>
+    <string name="checkin_hospital_address">Tap here to pick Geo code</string>
     <string name="hospital_photo">Hospital Photo</string>
     <string name="doctor_personal_details">Doctor Personal Details</string>
     <string name="hospital_clinic_details">Hospital / Clinic Details</string>
     <string name="doctor_assistant_details">Doctor\'s Assistant Detail</string>
     <string name="other_info">Other Information</string>
-    <string name="pick_current_location">Pick Current Location</string>
+    <string name="pick_current_location">Pick Current Geo code</string>
     <string name="developed_by">Developed By</string>
     <string name="full_name">Full Name</string>
     <string name="action_edit">Edit</string>
@@ -109,4 +109,6 @@
     cheese caerphilly cheddar cheesecake cream cheese manchego lancashire. Roquefort squirty cheese
     the big cheese.</string>
     <string name="checkin">Checkin</string>
+    <string name="address_entry">Enter address</string>
+    <string name="getting_lat_long">getting latitude and longitude</string>
 </resources>
